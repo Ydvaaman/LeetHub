@@ -1,5 +1,9 @@
-class Solution {
-    public double myPow(double x, int n) {
-        return Math.pow(x,n);
-    }
-}
+/**
+ * @param {number} x
+ * @param {number} n
+ * @return {number}
+ */
+var myPow = function(x, n) {
+    return x**n
+    
+};
