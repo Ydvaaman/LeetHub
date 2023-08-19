@@ -19,7 +19,7 @@ private void backtrack(List<List<Integer>> resultSets, List<Integer> tempSet, in
         
         // backtrack the new subset
         backtrack(resultSets, tempSet, nums, i+1);
-        
+        // case not including the number
         tempSet.remove(tempSet.size()-1);
     }
 }
