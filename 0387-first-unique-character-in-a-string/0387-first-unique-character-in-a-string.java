@@ -8,11 +8,8 @@ class Solution {
                     break;
                 }
             }
-            if(flag==false){
-                return i;
-            }else{
-                flag = false;
-            }
+            if(flag==false) return i;
+            else flag = false;
         }
         return -1;
     }
