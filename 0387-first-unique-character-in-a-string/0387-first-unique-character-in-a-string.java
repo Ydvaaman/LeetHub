@@ -1,16 +1,21 @@
 class Solution {
     public int firstUniqChar(String s) {
-        boolean flag = false;
+        HashMap<Character,Integer> map = new HashMap<>();
+        // key - unique characters in the string
+        // value - frequecy of each character in the string
         for(int i=0;i<s.length();i++){
-            for(int j=0;j<s.length();j++){
-                if(s.charAt(i)==s.charAt(j) && i!=j){
-                    flag = true;
-                    break;
-                }
+            if(map.containsKey(s.charAt(i))){
+                map.put(s.charAt(i),map.get(s.charAt(i))+1);
+            }else{
+                map.put(s.charAt(i),1);
             }
-            if(flag==false) return i;
-            else flag = false;
+        }
+        for(int i=0;i<s.length();i++){
+            if(map.get(s.charAt(i))==1){
+                return i;
+            }
         }
         return -1;
+        
     }
 }
