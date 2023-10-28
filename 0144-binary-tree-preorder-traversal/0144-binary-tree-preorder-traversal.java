@@ -21,6 +21,5 @@ class Solution {
         list.addAll(preorderTraversal(root.left));
         list.addAll(preorderTraversal(root.right));
         return list;
-        
     }
 }
