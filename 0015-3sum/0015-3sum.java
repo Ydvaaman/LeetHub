@@ -12,11 +12,7 @@ class Solution {
             while(start<last){
                 int sum = nums[i]+nums[start]+nums[last];
                 if(sum==0){
-                    List<Integer>res = new ArrayList<>();
-                    res.add(nums[i]);
-                    res.add(nums[start]);
-                    res.add(nums[last]);
-                    list.add(res);
+                    list.add(Arrays.asList(nums[i],nums[start],nums[last]));
                     start++;
                     last--;
                     while(start < last && nums[start]==nums[start-1])start++;
