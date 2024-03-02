@@ -1,68 +1,57 @@
 class Solution {
 
     public String reverseStr(String s, int k) {
-        List<String> list =new ArrayList<>();
-        
-        String temp="";
-        int count=0;
-        for(int i=0;i<s.length();i++){
-            temp+=s.charAt(i);
+        List<String> list = new ArrayList<>();
+
+        String temp = "";
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            temp += s.charAt(i);
             count++;
-            if(count==(2*k)){
+            if (count == (2 * k)) {
                 list.add(temp);
-                count=0;
-                temp="";
+                count = 0;
+                temp = "";
             }
         }
-        
-        if(count>0){
+
+        if (count > 0) {
             list.add(temp);
         }
-        
-        String ans="";
-        for(String str:list){
-            
-            if(str.length()==(2*k)){
-                
-                String first_half=str.substring(0,k);
-                String second_half=str.substring(k);
-                
-                ans=(ans+rev(first_half)+second_half);
-                
-            }else{
-                if(str.length()<k){
-                    ans=ans+rev(str);
-                }else{
-                    String first_half=str.substring(0,k);
-                    String second_half=str.substring(k);
-                
-                    ans=(ans+rev(first_half)+second_half);
-                }
-                
-            }
-            
-        }
-        
-        return ans;
-//         String[] str = s.split(" ");
-//         String s1 = "";
-//         for (int i = 0; i < str.length; i=i+k) {
-//             String temp = rev(str[i]);
-//             System.out.print(temp);
-//             // str[i] = temp;
-//             // System.out.print(Arrays.toString(str));
-//         }
-//         return s;
-//     }
 
-//     public String rev(String s) {
-//         String newStr = "";
-//         for (int i = s.length() - 1; i >= 0; i--) {
-//             newStr += s.charAt(i);
-//         }
-//         return newStr;
+        String ans = "";
+        for (String str : list) {
+            if (str.length() == (2 * k) || str.length() >= k) {
+                String first_half = str.substring(0, k);
+                String second_half = str.substring(k);
+
+                ans = (ans + rev(first_half) + second_half);
+            } else {
+                ans = ans + rev(str);
+            }
+        }
+
+        return ans;
+        //         String[] str = s.split(" ");
+        //         String s1 = "";
+        //         for (int i = 0; i < str.length; i=i+k) {
+        //             String temp = rev(str[i]);
+        //             System.out.print(temp);
+        //             // str[i] = temp;
+        //             // System.out.print(Arrays.toString(str));
+        //         }
+        //         return s;
+        //     }
+
+        //     public String rev(String s) {
+        //         String newStr = "";
+        //         for (int i = s.length() - 1; i >= 0; i--) {
+        //             newStr += s.charAt(i);
+        //         }
+        //         return newStr;
     }
-     public String rev(String s){
+
+    public String rev(String s) {
         StringBuilder sb = new StringBuilder(s);
         return sb.reverse().toString();
     }
@@ -73,4 +62,3 @@ class Solution {
 //         System.out.println(ans);
 //          return ans;
 //     }
-   
