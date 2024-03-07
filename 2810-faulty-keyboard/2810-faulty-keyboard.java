@@ -5,7 +5,6 @@ public class Solution {
 
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == 'i') {
-               int idx = i;
                 String res = str.substring(0, str.length());
                 str = rev(res);
             } else{
