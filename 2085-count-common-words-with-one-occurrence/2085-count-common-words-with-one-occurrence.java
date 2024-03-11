@@ -16,12 +16,12 @@ class Solution {
             map.put(str, map.getOrDefault(str, 0) + 1);
         }
         int count = 0;
-
-        for (String st : ans) {
+System.out.println(map);
+        for (String st : map.keySet()) {
             if (map.get(st) == 2 && Arrays.asList(words1).contains(st) && Arrays.asList(words2).contains(st)) {
                 count++;
             }
         }
-        return count/2;
+        return count;
     }
 }
