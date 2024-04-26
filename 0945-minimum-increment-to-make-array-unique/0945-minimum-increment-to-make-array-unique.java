@@ -5,13 +5,13 @@ class Solution {
         int max = 0;
         Arrays.sort(nums);
         for(int n:nums){
-            if(set.contains(n)){
-                count+= max-n+1;
-                n=max+1;
-            }
+           if(set.contains(n)){
+               int loc = n;
+               n = max;
+               count+= max - loc;
+           }
             set.add(n);
-            max = n;
-            
+            max = n+1;
         }
         return count;
     }
