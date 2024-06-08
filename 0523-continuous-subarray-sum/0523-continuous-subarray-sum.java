@@ -1,17 +1,26 @@
 class Solution {
     public boolean checkSubarraySum(int[] nums, int k) {
+        int n = nums.length;
+        
+        Map<Integer, Integer> mp = new HashMap<>();
+        mp.put(0, -1);
+        
         int sum = 0;
-        HashMap<Integer, Integer> map = new HashMap<>();
-        map.put(0, -1);
-        for (int i = 0; i < nums.length; i++) {
+        
+        for (int i = 0; i < n; i++) {
             sum += nums[i];
-            if (k != 0) sum = sum % k;
-            if (map.containsKey(sum)) {
-                if (i - map.get(sum) > 1) return true;
+            
+            int remainder = sum % k;
+            
+            if (mp.containsKey(remainder)) {
+                if (i - mp.get(remainder) >= 2) {
+                    return true;
+                }
             } else {
-                map.put(sum, i);
+                mp.put(remainder, i);
             }
         }
+        
         return false;
     }
 }
