@@ -11,12 +11,9 @@ class Solution {
                 rem+=k;
             }
             if(map.containsKey(rem)){
-                res+=map.get(rem);
-                map.put(rem,map.getOrDefault(rem,0)+1);
-            }else{
-                    map.put(rem,1);
+                res+=map.get(rem); 
             }
-            
+            map.put(rem,map.getOrDefault(rem,0)+1);
         }
         return res;
     }
